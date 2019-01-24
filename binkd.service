@@ -1,0 +1,14 @@
+[Unit]
+Description=FidoTech TCP/IP mailer
+Documentation=man:binkd(8)
+After=network.target
+
+[Service]
+Restart=on-failure
+ExecStart=/usr/sbin/binkd /etc/binkd.conf -q -C
+ExecReload=/bin/kill -HUP $MAINPID
+User=news
+Group=news
+
+[Install]
+WantedBy=multi-user.target
