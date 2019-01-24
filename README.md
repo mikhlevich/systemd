@@ -1,2 +1,2 @@
 # systemd
-.service files for systemd
+.service systemd files for CentOS 7
