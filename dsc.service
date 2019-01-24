@@ -1,0 +1,15 @@
+[Unit]
+Description=DNS Statistics Collector
+Documentation=man:dsc(1) man:dsc.conf(5)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+PIDFile=/var/run/dsc.pid
+Restart=on-failure
+ExecStart=/usr/bin/dsc -f /etc/dsc/dsc.conf
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
