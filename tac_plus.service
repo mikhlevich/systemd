@@ -8,7 +8,7 @@ Type=simple
 User=root
 PIDFile=/var/run/tac_plus.pid
 Restart=on-failure
-ExecStart=/usr/bin/tac_plus -G -L -C /etc/tac_plus.conf -B IP -l /var/log/tac_plus/tac_plus.acct
+ExecStart=/usr/bin/tac_plus -C /etc/tac_plus.conf -G -L -B IP -l /var/log/tac_plus/tac_plus.acct
 ExecReload=/bin/kill -HUP $MAINPID
 
 [Install]
