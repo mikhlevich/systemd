@@ -1,0 +1,16 @@
+[Unit]
+Description=TACACS+
+Documentation=man:tac_plus(8) man:tac_plus.conf(5)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+PIDFile=/var/run/tac_plus.pid
+Restart=on-failure
+ExecStart=/usr/bin/tac_plus -G -L -C /etc/tac_plus.conf -B IP -l /var/log/tac_plus/tac_plus.acct
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
+
