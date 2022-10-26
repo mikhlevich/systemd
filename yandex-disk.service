@@ -1,0 +1,16 @@
+[Unit]
+Description=Yandex Disk Service
+Documentation=man:yandex-disk(1)
+After=network-online.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/yandex-disk start
+ExecStop=/usr/bin/yandex-disk stop
+Restart=on-failure
+TimeoutSec=5
+User=denis
+Group=denis
+
+[Install]
+WantedBy=multi-user.target
