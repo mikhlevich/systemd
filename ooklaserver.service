@@ -1,0 +1,15 @@
+[Unit]
+Description=Ookla Net Server (SpeedTest)
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/opt/ookla-net-server/OoklaServer start
+ExecStop=/opt/ookla-net-server/OoklaServer stop
+Restart=on-failure
+TimeoutSec=5
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

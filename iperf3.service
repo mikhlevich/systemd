@@ -1,0 +1,15 @@
+[Unit]
+Description=IPerf3 server
+Documentation=man:iperf3(1)
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/iperf3 -s
+Restart=on-failure
+TimeoutSec=5
+User=ookla
+Group=ookla
+
+[Install]
+WantedBy=multi-user.target
